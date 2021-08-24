@@ -7,13 +7,21 @@ function Car( make, model, year, color, passengers, convertible, mileage){
     this.convertible = convertible;
     this.mileage = mileage;
     this.started = false;
+    this.fuel = 0;
     this.start = function(){this.started = true};
     this.drive = function(){if (this.started) {
-                                alert("Zoom zoom!"); } 
+                                if (this.fuel > 0) { alert(this.make + " " +
+                                this.model + " goes zoom zoom!"); this.fuel = this.fuel - 1;
+                                } else {
+                                alert("Uh oh, out of fuel.");
+                                this.stop(); }
+                            }
                             else {
                                 alert("You need to start the engine first."); }
-                            }
+                            };
     this.stop = function(){this.started = false};
+    this.addFuel = function(amount) {
+        this.fuel = this.fuel + amount};
 }
 
 function prequal(car) {
@@ -43,6 +51,11 @@ for (var i =0; i < 4; i++){
     }
     car.drive();
     car.start();
+    car.drive();
+    car.addFuel(2);
+    car.start();
+    car.drive();
+    car.drive();
     car.drive();
     car.stop();
 }
