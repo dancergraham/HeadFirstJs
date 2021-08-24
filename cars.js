@@ -6,6 +6,14 @@ function Car( make, model, year, color, passengers, convertible, mileage){
     this.passengers = passengers;
     this.convertible = convertible;
     this.mileage = mileage;
+    this.started = false;
+    this.start = function(){this.started = true};
+    this.drive = function(){if (this.started) {
+                                alert("Zoom zoom!"); } 
+                            else {
+                                alert("You need to start the engine first."); }
+                            }
+    this.stop = function(){this.started = false};
 }
 
 function prequal(car) {
@@ -33,4 +41,8 @@ for (var i =0; i < 4; i++){
     else {
         console.log("You should really pass on the " + car.make + " " + car.model); 
     }
+    car.drive();
+    car.start();
+    car.drive();
+    car.stop();
 }
