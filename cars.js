@@ -18,11 +18,19 @@ function prequal(car) {
     return true;
 }
 
-var taxi = new Car("Webville Motors", "Taxi", 1955, "yellow", 4, false, 281341 )
-var worthALook = prequal(taxi);
-if (worthALook) {
-    console.log("You gotta check out this " + taxi.make + " " + taxi.model);
-} 
-else {
-    console.log("You should really pass on the " + taxi.make + " " + taxi.model); 
+var taxi = new Car("Webville Motors", "Taxi", 1955, "yellow", 4, false, 281341 );
+var cadi = new Car("GM", "Cadillac", 1955, "tan", 5, false, 12892 );
+var fiat = new Car("Fiat", "500", 1957, "Medium Blue", 2, false, 88000 );
+var chevy = new Car("Chevy", "Bel Air", 1957, "red", 2, false, 1021 );
+
+var cars = [taxi, cadi, fiat, chevy];
+for (var i =0; i < 4; i++){
+    car = cars[i];
+    var worthALook = prequal(car);
+    if (worthALook) {
+        console.log("You gotta check out this " + car.make + " " + car.model);
+    } 
+    else {
+        console.log("You should really pass on the " + car.make + " " + car.model); 
+    }
 }
