@@ -40,7 +40,9 @@ var model = {
     shipLength : 3,
     fire : function(guess){
         for (i = 0; i < this.ships.length; i++){
+            console.log(i)
             var ship = this.ships[i];
+            console.log(ship)
             var index = ship.locations.indexOf(guess);
             if (index >= 0){
                 ship.hits[index] = "hit";
@@ -54,8 +56,8 @@ var model = {
             }
             view.displayMiss(guess); 
             view.displayMessage("You missed.");
-            return false;
-            }
+        }
+        return false;
             
         }
     ,
