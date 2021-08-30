@@ -17,7 +17,12 @@
             function showAnswer(eventObj) {
                 var image = eventObj.target;
                 var imageName = "blur/" + image.id + ".jpg";
-                image.src = imageName; 
+                image.src = imageName;
+                window.setTimeout(reBlur, 2000, image);
+            }
+            function reBlur(image){
+                var imageName = "blur/" + image.id + "blur.jpg";
+                image.src = imageName;
             }
         </script> 
     </head>
