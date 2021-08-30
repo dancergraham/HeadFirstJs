@@ -1,3 +1,6 @@
+// TODO : refuse repeated hits at the same spot
+// TODO : add tests
+
 function Ship(){
     this.locations = [0,0,0];
     this.hits = ["", "", ""];
