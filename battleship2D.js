@@ -41,6 +41,7 @@ var model = {
     ships : [new Ship(),new Ship(),new Ship()],
     shipsSunk : 0,
     shipLength : 3,
+    highScore : Infinity,
     fire : function(guess){
         for (i = 0; i < this.ships.length; i++){
             console.log(i)
@@ -131,12 +132,23 @@ var controller = {
             var hit = model.fire(location);
             if (hit && model.shipsSunk === model.numShips) { 
                 view.displayMessage("You sank all my battleships, in " + this.guesses + " guesses");
+                if (this.guesses < model.highScore){
+                    model.highScore = this.guesses;
+                    window.localStorage.setItem("highScore", model.highScore);
+                }
             }
         }
     },
 };
 
 function init(){
+    var storage = window.localStorage;
+    var highScore = storage.getItem("highScore");
+    if (highScore !== null){
+        model.highScore = highScore;
+    }
+
+    view.displayMessage("Your best score is " + model.highScore);
     var fireButton = document.getElementById("fireButton");
     fireButton.onclick = view.handleFireButton;
     var guessInput = document.getElementById("guessInput");
