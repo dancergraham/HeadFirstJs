@@ -1,6 +1,7 @@
-// TODO : refuse repeated hits at the same spot
-// TODO : add tests
+/** @todo : refuse repeated hits at the same spot
+ * @todo : add tests */
 
+/** @function Ship representing a ship's location and status. */
 function Ship(){
     this.locations = [0,0,0];
     this.hits = ["", "", ""];
