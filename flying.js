@@ -6,7 +6,7 @@
 
 
 function checkNoFlyList(passenger) {
-    const NOfLYLIST = ["Dr. Evel"];
+    var NOfLYLIST = ["Dr. Evel"];
     if (NOfLYLIST.indexOf(passenger) >= 0){
         return false;
     }
