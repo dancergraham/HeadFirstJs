@@ -1,28 +1,51 @@
+/** Class representing a Dog */
 class Dog{
+/**
+ * Create a dog.
+ * @param {string} name 
+ * @param {string} breed
+ * @param {number} weight
+ */
     constructor(name, breed, weight){
         this.name= name;
         this.breed= breed;
         this.weight= weight;
     }
+
+    bark() { 
+        if (this.weight > 25) {
+            console.log(this.name + " says Woof!"); 
+        } else {
+            console.log(this.name + " says Yip!"); 
+        }
+    };
+
+    run() {
+        console.log("Run!"); 
+    };
+    
+    wag() {
+        console.log("Wag!"); 
+    };
+
+
 }
 
 Dog.prototype.species = "Canine";
-Dog.prototype.bark = function() { 
-    if (this.weight > 25) {
-        console.log(this.name + " says Woof!"); 
-    } else {
-        console.log(this.name + " says Yip!"); 
-    }
-};
-Dog.prototype.run = function() {
-    console.log("Run!"); 
-};
 
-Dog.prototype.wag = function() {
-    console.log("Wag!"); 
-};
 
+/** Class representing a ShowDog 
+ * @extends Dog
+ * 
+ */
 class Showdog extends Dog {
+/**
+ * Create a Showdog.
+ * @param {string} name 
+ * @param {string} breed
+ * @param {number} weight
+ * @param {string} handler
+ */
     constructor(name, breed, weight, handler){
         super(name, breed, weight);
         this.handler = handler;
